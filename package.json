@@ -1,0 +1,31 @@
+{
+  "name": "browjadify-compile",
+  "version": "0.0.1",
+  "description": "The function browjadify uses to compile jade templates for the browser",
+  "keywords": [],
+  "publishConfig": {
+    "registry": "http://registry.npmjs.org"
+  },
+  "main": "./compile.js",
+  "browser": "./browser.js",
+  "scripts": {
+    "lint": "./node_modules/.bin/jshint . --reporter=./node_modules/jshint-full-path/index.js",
+    "pretest": "npm run-script lint",
+    "test": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- -R spec",
+    "posttest": "./node_modules/.bin/istanbul check-coverage && rm -rf coverage",
+    "prepublish": "npm test && npm prune"
+  },
+  "repository": "git@github.com:bengourley/browjadify-compile.git",
+  "author": "Ben Gourley",
+  "license": "BSD",
+  "dependencies": {},
+  "devDependencies": {
+    "browjadify": "^2.2.1",
+    "browserify": "~2.13.3",
+    "istanbul": "^0.2.9",
+    "jade": "~0.35.0",
+    "jshint": "^2.5.0",
+    "jshint-full-path": "^1.1.1",
+    "mocha": "~1.9.0"
+  }
+}
