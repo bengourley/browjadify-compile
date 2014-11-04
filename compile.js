@@ -15,6 +15,14 @@ function compile(filename) {
 
   if (!hasClientFn) options.client = true
   var fn = jade[hasClientFn ? 'compileClient' : 'compile'](fs.readFileSync(filename), options)
-  return 'string' === typeof fn ? new Function('return ' + fn)() : fn
+  if ('string' === typeof fn) fn = new Function('return ' + fn)()
+  fn.dependencies = listDependentFiles(filename)
+  return fn
 
+}
+
+function listDependentFiles(filename) {
+  var parser = new jade.Parser(fs.readFileSync(filename, 'utf8'), filename)
+  parser.parse()
+  return parser.dependencies || []
 }

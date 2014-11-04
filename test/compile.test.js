@@ -22,6 +22,11 @@ describe('browjadify', function () {
       })
     })
 
+    it('should list the dependent jade files as a property on the returned function', function () {
+      var template = compile(__dirname + '/fixtures/c.jade')
+      assert.deepEqual([ __dirname + '/fixtures/d.jade' ], template.dependencies)
+    })
+
   })
 
   describe('package.json', function () {
