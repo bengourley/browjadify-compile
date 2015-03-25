@@ -23,7 +23,7 @@
     "browjadify": "^2.2.1",
     "browserify": "~2.13.3",
     "istanbul": "^0.2.9",
-    "jade": "~0.35.0",
+    "jade": "~1.9.2",
     "jshint": "^2.5.0",
     "jshint-full-path": "^1.1.1",
     "mocha": "~1.9.0"
